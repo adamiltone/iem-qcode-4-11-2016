@@ -16,19 +16,21 @@ import butterknife.OnClick;
 
 public class DetailActivity extends AppCompatActivity {
     @BindView(R.id.activity_detail_tv_content) TextView tvContent;
+    private BLEManager bleManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
+        bleManager = BLEManager.getInstance();
     }
 
     @OnClick(R.id.activity_detail_button_history)
     public void actionRetrieve(Button button) {
-        updateContent("History clicked");
+        String result = bleManager.getBLELastValues();
+        updateContent(result);
     }
-
 
     private void updateContent(String value) {
         tvContent.setText(value);

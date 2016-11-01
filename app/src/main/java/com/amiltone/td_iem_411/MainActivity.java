@@ -12,17 +12,20 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.activity_main_tv_content) TextView tvContent;
+    private BLEManager bleManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        bleManager = BLEManager.getInstance();
     }
 
     @OnClick(R.id.activity_main_button_associate)
     public void actionAssociate(Button button) {
-        updateContent("Associate clicked");
+        bleManager.connectDevice();
+        updateContent("Paired and connected device");
     }
 
     @OnClick(R.id.activity_main_button_detail)
@@ -33,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.activity_main_button_retrieve)
     public void actionRetrieve(Button button) {
-        updateContent("Retrieve clicked");
+        String result = bleManager.getBLELastValue();
+        updateContent(result);
     }
 
     private void updateContent(String value) {

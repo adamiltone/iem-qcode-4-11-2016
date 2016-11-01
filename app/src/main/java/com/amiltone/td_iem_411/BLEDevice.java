@@ -35,7 +35,7 @@ public class BLEDevice {
         return resultValues;
     }
 
-    public boolean pairDevice() {
+    public boolean pairConnectDevice() {
         status = CONNECTED;
         return true;
     }
