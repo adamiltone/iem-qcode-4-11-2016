@@ -4,4 +4,7 @@
     <string name="button_label_detail">Detail</string>
     <string name="button_label_retrieve">Display current</string>
     <string name="button_label_history">Show history</string>
+    <string name="dialog_label_ok">Sadface :(</string>
+    <string name="dialog_label_error_title">Something\'s wrong</string>
+
 </resources>

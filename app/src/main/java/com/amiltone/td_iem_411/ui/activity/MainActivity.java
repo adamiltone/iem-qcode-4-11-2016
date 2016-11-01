@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.amiltone.td_iem_411.R;
 import com.amiltone.td_iem_411.model.manager.BLEManager;
 import com.amiltone.td_iem_411.ui.composition.MessagingModule;
+import com.amiltone.td_iem_411.ui.composition.MessagingModuleAlertImpl;
 import com.amiltone.td_iem_411.ui.composition.MessagingModuleToastImpl;
 
 import butterknife.BindView;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeInjection() {
         bleManager = BLEManager.getInstance();
-        messagingModule = new MessagingModuleToastImpl();
+        messagingModule = new MessagingModuleAlertImpl();
     }
 
     @OnClick(R.id.activity_main_button_associate)
@@ -64,6 +65,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayError(String errorMsg) {
-        messagingModule.displayError(getApplicationContext(),errorMsg);
+        messagingModule.displayError(this,errorMsg);
     }
 }
