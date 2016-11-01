@@ -64,6 +64,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayError(String errorMsg) {
-        messagingModule.displayError(getApplicationContext(),errorMsg);
+        messagingModule.displayError(this,errorMsg);
     }
 }
