@@ -1,5 +1,6 @@
 package com.amiltone.td_iem_411;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.activity_main_button_detail)
     public void actionDetail(Button button) {
-        updateContent("Detail clicked");
+        Intent intent = new Intent(this, DetailActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.activity_main_button_retrieve)

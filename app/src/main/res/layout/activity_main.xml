@@ -26,4 +26,12 @@
         android:id="@+id/activity_main_tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/activity_main_button_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="@string/button_label_detail"/>
+
 </LinearLayout>

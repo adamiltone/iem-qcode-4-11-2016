@@ -3,4 +3,5 @@
     <string name="button_label_associate">Associate</string>
     <string name="button_label_detail">Detail</string>
     <string name="button_label_retrieve">Display current</string>
+    <string name="button_label_history">Show history</string>
 </resources>
