@@ -1,4 +1,4 @@
-package com.amiltone.td_iem_411;
+package com.amiltone.td_iem_411.model.pojo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +8,10 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by amiltonedev_lt027 on 01/11/2016.
  */
 
-public class BLEDevice {
-    public static final int OFFLINE = 0;
-    public static final int AVAILABLE = 1;
-    public static final int CONNECTED = 2;
-
+public class BLEDeviceMockImpl implements BLEDevice {
     private int status;
 
-    public BLEDevice() {
+    public BLEDeviceMockImpl() {
         status = AVAILABLE;
     }
 

@@ -1,11 +1,13 @@
-package com.amiltone.td_iem_411;
+package com.amiltone.td_iem_411.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.amiltone.td_iem_411.R;
+import com.amiltone.td_iem_411.model.manager.BLEManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

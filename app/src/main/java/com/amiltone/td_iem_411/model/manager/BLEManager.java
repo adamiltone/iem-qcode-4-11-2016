@@ -1,4 +1,8 @@
-package com.amiltone.td_iem_411;
+package com.amiltone.td_iem_411.model.manager;
+
+import com.amiltone.td_iem_411.model.pojo.BLEDevice;
+import com.amiltone.td_iem_411.model.pojo.BLEDeviceMockFailureImpl;
+import com.amiltone.td_iem_411.model.pojo.BLEDeviceMockImpl;
 
 /**
  * Created by amiltonedev_lt027 on 01/11/2016.
@@ -12,7 +16,7 @@ public class BLEManager {
     private BLEDevice currentDevice;
 
     private BLEManager() {
-        currentDevice = new BLEDevice();
+        currentDevice = new BLEDeviceMockFailureImpl();
     }
 
     public boolean connectDevice() {
@@ -41,10 +45,10 @@ public class BLEManager {
     }
 
     private boolean isConnected() {
-        return currentDevice.getStatus() == BLEDevice.CONNECTED;
+        return currentDevice.getStatus() == BLEDeviceMockImpl.CONNECTED;
     }
 
     private boolean isOffline() {
-        return currentDevice.getStatus() == BLEDevice.OFFLINE;
+        return currentDevice.getStatus() == BLEDeviceMockImpl.OFFLINE;
     }
 }
