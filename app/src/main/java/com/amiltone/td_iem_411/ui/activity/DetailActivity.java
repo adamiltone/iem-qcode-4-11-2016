@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.amiltone.td_iem_411.R;
 import com.amiltone.td_iem_411.model.manager.BLEManager;
 import com.amiltone.td_iem_411.ui.composition.MessagingModule;
+import com.amiltone.td_iem_411.ui.composition.MessagingModuleToastImpl;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void initializeInjection() {
         bleManager = BLEManager.getInstance();
-        messagingModule = new MessagingModule();
+        messagingModule = new MessagingModuleToastImpl();
     }
 
     @OnClick(R.id.activity_detail_button_history)
