@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         if (success) {
             updateContent("Paired and connected device");
         } else {
-            updateContent("Failed, already connected or device offline");
+            displayError("Failed, already connected or device offline");
         }
     }
 
@@ -44,11 +45,15 @@ public class MainActivity extends AppCompatActivity {
         if (result != null) {
             updateContent(result);
         } else {
-            updateContent("not connected to device");
+            displayError("not connected to device");
         }
     }
 
     private void updateContent(String value) {
         tvContent.setText(value);
+    }
+
+    private void displayError(String errorMsg) {
+        Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
     }
 }
