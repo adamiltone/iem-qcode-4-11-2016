@@ -29,7 +29,11 @@ public class DetailActivity extends AppCompatActivity {
     @OnClick(R.id.activity_detail_button_history)
     public void actionRetrieve(Button button) {
         String result = bleManager.getBLELastValues();
-        updateContent(result);
+        if (result != null) {
+            updateContent(result);
+        } else {
+            updateContent("not connected to device");
+        }
     }
 
     private void updateContent(String value) {

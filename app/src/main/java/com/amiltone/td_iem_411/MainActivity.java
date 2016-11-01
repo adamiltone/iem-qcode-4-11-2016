@@ -24,8 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.activity_main_button_associate)
     public void actionAssociate(Button button) {
-        bleManager.connectDevice();
-        updateContent("Paired and connected device");
+        boolean success = bleManager.connectDevice();
+        if (success) {
+            updateContent("Paired and connected device");
+        } else {
+            updateContent("Failed, already connected or device offline");
+        }
     }
 
     @OnClick(R.id.activity_main_button_detail)
@@ -37,7 +41,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.activity_main_button_retrieve)
     public void actionRetrieve(Button button) {
         String result = bleManager.getBLELastValue();
-        updateContent(result);
+        if (result != null) {
+            updateContent(result);
+        } else {
+            updateContent("not connected to device");
+        }
     }
 
     private void updateContent(String value) {

@@ -16,14 +16,23 @@ public class BLEManager {
     }
 
     public boolean connectDevice() {
+        if (isConnected() || isOffline()) {
+            return false;
+        }
         return currentDevice.pairConnectDevice();
     }
 
     public String getBLELastValue() {
+        if (!isConnected()) {
+            return null;
+        }
         return "Last value : " + currentDevice.getLastValue();
     }
 
     public String getBLELastValues() {
+        if (!isConnected()) {
+            return null;
+        }
         String result = "Last values : \n";
         for (String bleValue : currentDevice.getLastValues()) {
             result+=bleValue+"\n";
@@ -33,5 +42,9 @@ public class BLEManager {
 
     private boolean isConnected() {
         return currentDevice.getStatus() == BLEDevice.CONNECTED;
+    }
+
+    private boolean isOffline() {
+        return currentDevice.getStatus() == BLEDevice.OFFLINE;
     }
 }
