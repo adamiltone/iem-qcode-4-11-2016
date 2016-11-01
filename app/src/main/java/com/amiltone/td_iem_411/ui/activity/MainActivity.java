@@ -1,4 +1,4 @@
-package com.amiltone.td_iem_411.ui;
+package com.amiltone.td_iem_411.ui.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.amiltone.td_iem_411.R;
 import com.amiltone.td_iem_411.model.manager.BLEManager;
+import com.amiltone.td_iem_411.ui.composition.MessagingModule;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,13 +18,19 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.activity_main_tv_content) TextView tvContent;
     private BLEManager bleManager;
+    private MessagingModule messagingModule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initializeInjection();
+    }
+
+    private void initializeInjection() {
         bleManager = BLEManager.getInstance();
+        messagingModule = new MessagingModule();
     }
 
     @OnClick(R.id.activity_main_button_associate)
@@ -57,6 +64,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayError(String errorMsg) {
-        Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
+        messagingModule.displayError(getApplicationContext(),errorMsg);
     }
 }
