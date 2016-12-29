@@ -2,31 +2,20 @@ language: android
 jdk: oraclejdk8
 android:
   components:
-    - tools
-    - platform-tools
-
-    # The BuildTools version used by your project
-    - build-tools-24.0.1
-
-    # The SDK version used to compile your project
-    - android-24
-
-    # Additional components
-    - extra-google-m2repository
-    - extra-android-m2repository
-
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-
+  - tools
+  - platform-tools
+  - build-tools-24.0.1
+  - android-24
+  - extra-google-m2repository
+  - extra-android-m2repository
 script:
-   - ./gradlew assembleDebug
-
+- "./gradlew assembleDebug"
 deploy:
-  - provider: releases
-    api_key:
-      secure: AAAAB3NzaC1yc2EAAAADAQABAAACAQDifDO/fX1s52FMxHdNP7SiknqUtjaxxYelA+JJRDvy7+R36CmSTx+LIhWseElUP7jUjMqBJ1ezOkWogkdEEFb3I8sgb9ASv14MFpd8zAK6X3oTZngjiXY67P0QTSvhPxAvoymucpy4gmtKa3ul3a+h83j6gN21DT2wduZ3R9QihbUCLBvWEQevuaQcaIs0bb/UVzwduKyqjjvNO5DFlDJVhXdioBURQMA3n9+tChBlWckdVtYUp2Kk7MlfZwRzvEU94Qel87NVvlm68am2C1FqRoFqluRlYMB/sHoEhNEYS0rAb+XDnPa1U+H9ITF9XP4yCQ54bai7axgKih1zDfSeCygMyi+X2pyuljDShdKcCuxm2CaVnGdB6xWg4B9eFjhscrfEQuDdiOUcsXKHvVOnmAfz7xb17u4GnsVvZBthuLDMxAf7kawniY3VF2oE3OE3qzmewjKUoFAGh376R5hVVnWcpg7TY/DDD8WJ+0gSBmZpIecU1FMEYYAwvbjkHHpZxMCtLdkXfViPrHtxPxg40hZTPLOJAqBYoPcmb9vSNbkIEFWPvul9YfuPDTRP1j+yqD2TEDuqDYoPxuDIToOlYg7ZpSoJ1g1VJhGWYWXG3k6+SxcP0HF1oJsVUeOnxz0xH1v5Xkn6rRBR2wJreO6/lcerfxfdAjAH2V8505D82w==
-    file: app/build/outputs/apk/app-debug.apk
-    skip_cleanup: true
-    on:
-      repo: adamiltone/iem-qcode-4-11-2016
-      tags: true
+  provider: releases
+  api_key:
+    secure: zQBRvHJnIZiQmKuuMxgmc441Iub+5WsRyRGJAYctE/djwXt7Ug8UBs6RMTV2rIR3kwfKz9oucC/uVJRYVEnpRqFvkImW9L2uSgQL6Cbzjjkj6K/GgKDnLf7UgdG90HVfxV2Ip3+cMR1/ZqyrzND7AJxVdd1ycYRMjAoyTcXihAzbLCSCapYA0dt3cLtxDXfCbSAuGxNFLjJm8d8zpE3T7f4pLzOC2L2tIZVmMtH/vVxgJaPsyFdQZkjoatqLCh2/134wpl4Wcvm37xzeN5JW3Tl9b5iiQse4mFKGD8o1fHUDePkqY2DZVQph3ddOZMjCbAvLBNpjQ2yYboZNv26tSwd6pmSv6n7mfdWZobnk6ZgV9WdhXMivNkfBGSnRGJDp+Z/uUiWoH9d+VvMMOX7vv5MrXe1/z+BK80XkW7Bf7BvklA8Zwv38+Y/GPfyHb1ImMey0Bx8zlhYiy6eMPRPUl2IdfhZQ7rH6P5VC4oRKs+9hhajePVFMPP+TkunFdIviqRYuQOgMVVZFlA1JqyZvIMTGMAppLe5+DR0vMFYPCWgwsytRLbRRLGV87psf3Ip0RqKwjlscA9T2Bb/iNJe6QJdsTKSYXrWBYrN/ckXU517vVaQuUCj5MTpyKHxZ8K2yPB7pAKfhocoH3AvdKaNHVlcSRlo9kPW4f0gFqrjrZ3c=
+  file: app/build/outputs/apk/app-debug.apk
+  skip_cleanup: true
+  on:
+    repo: adamiltone/iem-qcode-4-11-2016
+    tags: true
