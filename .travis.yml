@@ -20,3 +20,13 @@ android:
 
 script:
    - ./gradlew assembleDebug
+
+deploy:
+  - provider: releases
+    api_key:
+      secure: AAAAB3NzaC1yc2EAAAADAQABAAACAQDifDO/fX1s52FMxHdNP7SiknqUtjaxxYelA+JJRDvy7+R36CmSTx+LIhWseElUP7jUjMqBJ1ezOkWogkdEEFb3I8sgb9ASv14MFpd8zAK6X3oTZngjiXY67P0QTSvhPxAvoymucpy4gmtKa3ul3a+h83j6gN21DT2wduZ3R9QihbUCLBvWEQevuaQcaIs0bb/UVzwduKyqjjvNO5DFlDJVhXdioBURQMA3n9+tChBlWckdVtYUp2Kk7MlfZwRzvEU94Qel87NVvlm68am2C1FqRoFqluRlYMB/sHoEhNEYS0rAb+XDnPa1U+H9ITF9XP4yCQ54bai7axgKih1zDfSeCygMyi+X2pyuljDShdKcCuxm2CaVnGdB6xWg4B9eFjhscrfEQuDdiOUcsXKHvVOnmAfz7xb17u4GnsVvZBthuLDMxAf7kawniY3VF2oE3OE3qzmewjKUoFAGh376R5hVVnWcpg7TY/DDD8WJ+0gSBmZpIecU1FMEYYAwvbjkHHpZxMCtLdkXfViPrHtxPxg40hZTPLOJAqBYoPcmb9vSNbkIEFWPvul9YfuPDTRP1j+yqD2TEDuqDYoPxuDIToOlYg7ZpSoJ1g1VJhGWYWXG3k6+SxcP0HF1oJsVUeOnxz0xH1v5Xkn6rRBR2wJreO6/lcerfxfdAjAH2V8505D82w==
+    file: app/build/outputs/apk/app-debug.apk
+    skip_cleanup: true
+    on:
+      repo: adamiltone/iem-qcode-4-11-2016
+      tags: true
